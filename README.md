@@ -41,7 +41,17 @@ Mlops_local_platform/
 
 ## 🚀 Environment Setup
 
-### 1. Python Environment
+### 1. MLflow & Storage Infrastructure (Docker)
+This repository includes a fully self-contained Dockerized infrastructure (`mlflow-docker-infra/`), composed of a PostgreSQL database strictly for experiment metadata and a MinIO (S3-compatible) container for model artifact storage.
+
+To launch the backend infrastructure:
+```bash
+cd mlflow-docker-infra
+docker-compose up -d
+```
+*Wait locally for the MLflow UI (`localhost:5001`) and MinIO Console (`localhost:9001`) to come online.*
+
+### 2. Python Environment
 
 Create a virtual environment and install the dependencies.
 
@@ -52,17 +62,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. DVC Integration (Data Version Control)
+### 3. DVC Integration (Data Version Control)
 The datasets for this repository are tracked via a separate standalone DVC local remote. To fetch the data into your workspace locally:
 ```bash
+cd ml-platform-tutorial
 dvc pull
 ```
 
-### 3. MLflow Infrastructure (Dockerized Backend)
-The MLflow setup utilizes a Dockerized Postgres database and MinIO (S3-compatible) container. 
-
-Ensure you have your MLflow infrastructure running (assumed to be located locally at `../mlflow-docker-infra`). 
-Set your environment variables to point your training scripts to this infrastructure:
+### 4. Client Environment Variables
+Set your environment variables to point your training scripts to the running backend infrastructure:
 
 ```bash
 export MLFLOW_TRACKING_URI=http://localhost:5001
