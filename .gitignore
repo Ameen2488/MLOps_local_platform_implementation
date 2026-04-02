@@ -11,3 +11,6 @@ env/
 htmlcov/
 *.log
 .DS_Store
+
+# Social Media Drafts
+linkedin_post.md
