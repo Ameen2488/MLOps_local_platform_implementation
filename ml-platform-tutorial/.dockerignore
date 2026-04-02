@@ -1,0 +1,57 @@
+# Virtual environment
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Git
+.git/
+.gitignore
+
+# GitHub workflows (not needed in container)
+.github/
+
+# MLflow experiment tracking (not needed in container)
+mlruns/
+mlartifacts/
+
+# Database files
+*.db
+*.sqlite
+
+# HTML files (reports)
+*.html
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# Documentation
+*.md
+docs/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Local data that should be regenerated in container
+data/
+models/
+
+# Temp files
+*.log
+*.tmp
+.DS_Store

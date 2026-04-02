@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drift Detection Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        h1 { color: #333; }
+        h2 { color: #666; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+        .summary { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .alert { background: #ffebee; border: 1px solid #ef5350; padding: 15px; border-radius: 4px; margin: 10px 0; }
+        .no-alert { background: #e8f5e9; border: 1px solid #66bb6a; padding: 15px; border-radius: 4px; margin: 10px 0; }
+        table { border-collapse: collapse; width: 100%; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #f5f5f5; }
+        .drift-yes { color: #d32f2f; font-weight: bold; }
+        .drift-no { color: #388e3c; }
+        .stat-table { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>📊 Drift Detection Report</h1>
+    <p>Generated: 2026-04-02 18:03:18</p>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>Reference samples:</strong> 8,000</p>
+        <p><strong>Current samples:</strong> 2,000</p>
+        <p><strong>Features monitored:</strong> 3</p>
+        <p><strong>Drifted columns:</strong> 1</p>
+        <p><strong>Drift share:</strong> 33.3%</p>
+        <div class='alert'>⚠️ DRIFT DETECTED - Action may be required</div>
+    </div>
+    
+    <h2>Column Analysis</h2>
+    <table>
+        <tr>
+            <th>Column</th>
+            <th>Drift Detected</th>
+            <th>KS p-value</th>
+            <th>Reference Mean</th>
+            <th>Current Mean</th>
+        </tr>
+
+        <tr>
+            <td><strong>amount</strong></td>
+            <td class="drift-no">✓ NO</td>
+            <td>0.3495</td>
+            <td>86.47</td>
+            <td>90.37</td>
+        </tr>
+
+        <tr>
+            <td><strong>hour</strong></td>
+            <td class="drift-yes">⚠️ YES</td>
+            <td>0.0000</td>
+            <td>11.34</td>
+            <td>8.20</td>
+        </tr>
+
+        <tr>
+            <td><strong>day_of_week</strong></td>
+            <td class="drift-no">✓ NO</td>
+            <td>0.8474</td>
+            <td>3.05</td>
+            <td>3.00</td>
+        </tr>
+
+    </table>
+    
+    <h2>Detailed Statistics</h2>
+
+    <div class="stat-table">
+        <h3>amount</h3>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Reference</th>
+                <th>Current</th>
+                <th>Change</th>
+            </tr>
+            <tr>
+                <td>Mean</td>
+                <td>86.47</td>
+                <td>90.37</td>
+                <td>+3.90</td>
+            </tr>
+            <tr>
+                <td>Std Dev</td>
+                <td>315.42</td>
+                <td>602.80</td>
+                <td>+287.38</td>
+            </tr>
+            <tr>
+                <td>Min</td>
+                <td>0.30</td>
+                <td>0.44</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Max</td>
+                <td>13446.05</td>
+                <td>21760.69</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Median</td>
+                <td>33.92</td>
+                <td>33.56</td>
+                <td>-0.37</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="stat-table">
+        <h3>hour</h3>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Reference</th>
+                <th>Current</th>
+                <th>Change</th>
+            </tr>
+            <tr>
+                <td>Mean</td>
+                <td>11.34</td>
+                <td>8.20</td>
+                <td>-3.14</td>
+            </tr>
+            <tr>
+                <td>Std Dev</td>
+                <td>6.97</td>
+                <td>9.82</td>
+                <td>+2.85</td>
+            </tr>
+            <tr>
+                <td>Min</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Max</td>
+                <td>23.00</td>
+                <td>23.00</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Median</td>
+                <td>11.00</td>
+                <td>2.00</td>
+                <td>-9.00</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="stat-table">
+        <h3>day_of_week</h3>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Reference</th>
+                <th>Current</th>
+                <th>Change</th>
+            </tr>
+            <tr>
+                <td>Mean</td>
+                <td>3.05</td>
+                <td>3.00</td>
+                <td>-0.05</td>
+            </tr>
+            <tr>
+                <td>Std Dev</td>
+                <td>1.98</td>
+                <td>2.01</td>
+                <td>+0.03</td>
+            </tr>
+            <tr>
+                <td>Min</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Max</td>
+                <td>6.00</td>
+                <td>6.00</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Median</td>
+                <td>3.00</td>
+                <td>3.00</td>
+                <td>+0.00</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Interpretation</h2>
+    <ul>
+        <li><strong>KS test:</strong> Kolmogorov-Smirnov test compares distributions. p-value < 0.05 indicates drift.</li>
+        <li><strong>Drift share:</strong> Fraction of features with statistically significant drift.</li>
+        <li><strong>Action:</strong> If drift > 10%, consider retraining your model with recent data.</li>
+    </ul>
+</body>
+</html>

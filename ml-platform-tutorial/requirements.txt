@@ -1,0 +1,36 @@
+# requirements.txt
+
+# Core ML libraries
+pandas==1.5.3
+numpy==1.24.4
+scikit-learn==1.4.0
+
+# Experiment tracking and model registry
+mlflow==2.10.0
+psycopg2-binary==2.9.9
+boto3==1.34.0
+
+# Feature store
+feast==0.36.0
+
+# API framework
+fastapi==0.109.0
+uvicorn==0.27.0
+httpx==0.26.0
+
+# Data validation
+great-expectations==0.18.8
+
+# Monitoring
+evidently==0.7.20
+
+# Testing
+pytest==8.0.0
+pytest-cov==4.1.0
+
+# Utilities
+pyarrow==15.0.0
+pydantic==2.6.0
+
+# Data Version Control
+dvc==3.48.4
